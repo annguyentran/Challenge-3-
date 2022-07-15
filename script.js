@@ -1,15 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function random(min, max) {
-  if (!max) {
-    max = min
-    min = 0
-  }
-} 
+
+/// Pick out a random character function///
+
 
 function generatePassword() {
 
+  // Opens up a prompt //
 var promptInput = window.prompt("How long do you want your password? Min: 8 and Max: 128 (Characters)")
 
 var passwordLength = parseInt(promptInput)
@@ -24,46 +22,61 @@ if (passwordLength < 8 || passwordLength > 128) {
   return
 }
 
+/// Gives the users options on what to add to the password with the lists /// 
+
 var lowercaseconfirmation = window.confirm("Add lowercase letters?")
-var lowercaselists = ("a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z")
+var lowercaselists = ("abcdefghijklmnopqrstuvwxyz")
 
 var uppercaseconfirmation = window.confirm("Add uppercase letters?")
-var uppercaselists = ("A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z")
+var uppercaselists = lowercaselists.toUpperCase()
 
 var specialcharactersconfirmation = window.confirm("Add special character letters?")
-var specialcharacterslists = ("!, @, #, $, %, ^, &, *, ?")
+var specialcharacterslists = ("!@#$%^&*?")
 
 var numberconfirmation = window.confirm("Add numbers?")
-var numberlists = ("0, 1, 2, 3, 4, 5, 6, 7, 8, 9")
+var numberlists = ("0123456789")
+
+/// The "true" lists will be put in another list so that it can be pull from there ///
 
 var randomlist = []
+var characterOptions = ""
 
 if (lowercaseconfirmation === true) {
-randomlist.push(lowercaselists)
+characterOptions += lowercaselists; 
+///randomlist = randomlist.concat(lowercaselists)
 } 
 
 if (uppercaseconfirmation === true) {
-  randomlist.push(uppercaselists)
+  ///randomlist = randomlist.concat(uppercaselists)
+  characterOptions += uppercaselists
 }
 
 if (specialcharactersconfirmation === true) {
-  randomlist.push(specialcharacterslists)
+  // randomlist = randomlist.concat(specialcharacterslists)
+  characterOptions += specialcharacterslists
 }
 
 if (numberconfirmation === true){
-  randomlist.push(numberlists)
+//   randomlist  = randomlist.concat(numberlists)
+characterOptions += numberlists
 }
+var newPassword = "";
 
-var randomPassword = ""
+var maxIndex = characterOptions.length - 1;
 
 for (var i = 0; i < passwordLength; i++) {
-var newRandomList = randomlist[random(randomlist.length)]
-var characterList = newRandomList[random(newRandomList.length)]
-randomPassword += characterList
+var randomIndex = Math.floor(Math.random()*characterOptions.length)
+var randomCharacter = characterOptions[randomIndex]
+    
+
+newPassword += randomCharacter 
+
+/// randomPassword += characterList
 }
 
-console.log(randomPassword);
+console.log(newPassword );
 
+return newPassword
 
 }
 
