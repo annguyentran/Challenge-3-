@@ -5,3 +5,6 @@ This is a password generator for users who want a random password. When the user
 password will be generated in the box based on the user's preferences. 
 
 <img width="960" alt="2022-08-10 (1)" src="https://user-images.githubusercontent.com/107017473/184031133-16b2519c-0b64-4fec-9c27-6a1151330908.png">
+
+Deployed Website: 
+https://annguyentran.github.io/Challenge-3-/
