@@ -68,7 +68,6 @@ for (var i = 0; i < passwordLength; i++) {
 var randomIndex = Math.floor(Math.random()*characterOptions.length)
 var randomCharacter = characterOptions[randomIndex]
     
-
 newPassword += randomCharacter 
 
 /// randomPassword += characterList
